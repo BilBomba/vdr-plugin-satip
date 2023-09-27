@@ -140,7 +140,7 @@ void cSatipTuner::Action(void)
                if (hasLockM || ReadReceptionStatus()) {
 
                   if (signalStrengthDBmM == 0 && signalQualityM > 0) {
-                     debug1("%s:%s SignalStrengthBug", __FILE__, __LINE__);
+                     debug13("%s:%s SignalStrengthBug", __FILE__, __LINE__);
                      signalStrengthDBmM = 1;
                   }
 
