@@ -138,6 +138,13 @@ void cSatipTuner::Action(void)
                lastIdleStatus = false;
                // Read reception statistics via DESCRIBE and RTCP
                if (hasLockM || ReadReceptionStatus()) {
+
+                  if (signalStrengthDBmM == 0 && signalQualityM > 0) {
+                     debug1("%s:%s SignalStrengthBug", __FILE__, __LINE__);
+                     signalStrengthDBmM = 1;
+                  }
+
+
                   // Quirk for devices without valid reception data
                   if (currentServerM.IsQuirk(cSatipServer::eSatipQuirkForceLock)) {
                      hasLockM = true;
