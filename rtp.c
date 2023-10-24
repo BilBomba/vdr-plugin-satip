@@ -58,11 +58,7 @@ int cSatipRtp::GetHeaderLength(unsigned char *bufferP, unsigned int lengthP)
   unsigned int headerlen = 0;
 
   if (lengthP > 0) {
-     if (lengthP < TS_SIZE && bufferP[0] != TS_SYNC_BYTE) {
-         // from minisatip: satipc.c Line 774: Xoro Quirk
-         debug1("%s:%s Xoro fix", __FILE__, __LINE__);
-         return 0;
-     } else if (bufferP[0] == TS_SYNC_BYTE)
+     if (bufferP[0] == TS_SYNC_BYTE)
         return headerlen;
      else if (lengthP > 3) {
         // http://tools.ietf.org/html/rfc3550
