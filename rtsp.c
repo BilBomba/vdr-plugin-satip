@@ -542,6 +542,15 @@ bool cSatipRtsp::ValidateLatestResponse(long *rcP)
                result = true;
                break;
                }
+       case 454:
+            // DESCRIBE
+            // Sesseion not found
+            // Xoro 8100 
+            if (!isempty(*errorNoMoreM)) {
+               SATIP_CURL_EASY_GETINFO(handleM, CURLINFO_EFFECTIVE_URL, &url);
+               error("Session not found: %s (error code %ld: %s) [device %d]", *errorNoMoreM, rc, url, tunerM.GetId());
+               break;
+               }
        case 503:
             // SETUP PLAY
             // The message body of the response may contain the "No-More:" parameter followed
