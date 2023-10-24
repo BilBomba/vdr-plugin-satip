@@ -151,6 +151,7 @@ cSatipServer::cSatipServer(const char *srcAddressP, const char *addressP, const 
      if (strstr(*descriptionM, "FRITZ!WLAN Repeater DVB-C") || // FRITZ!WLAN Repeater DVB-C
          strstr(*descriptionM, "fritzdvbc") ||                 // FRITZ!WLAN Repeater DVB-C (old firmware)
          strstr(*descriptionM, "Schwaiger Sat>IP Server")      // Schwaiger MS41IP
+         strstr(*descriptionM, "XORO8100")      // XORO Server 8100  https://www.xoro.de/produkte/details/xoro-satip-server-8100/
         )
         quirkM |= eSatipQuirkForceLock;
      // These devices support the X_PMT protocol extension:
